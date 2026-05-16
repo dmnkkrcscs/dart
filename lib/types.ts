@@ -97,6 +97,7 @@ export type KillerState = {
 export type Settings = {
   voice: boolean;
   voiceLang: "de" | "en";
+  voicePack: "auto" | "pdc" | "de" | "browser";
   sound: boolean;
   haptic: boolean;
   bigDisplay: boolean;
@@ -107,7 +108,8 @@ export type Settings = {
 
 export const DEFAULT_SETTINGS: Settings = {
   voice: true,
-  voiceLang: "de",
+  voiceLang: "en",
+  voicePack: "auto",
   sound: true,
   haptic: true,
   bigDisplay: true,

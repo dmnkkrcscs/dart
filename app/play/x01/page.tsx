@@ -100,8 +100,8 @@ function Inner() {
     if (settings.sound) beep(bust ? 220 : visit.total === 180 ? 1320 : 660, bust ? 200 : 80);
     if (settings.haptic) vibrate(bust ? [40, 40, 40] : [20]);
     if (settings.voice) {
-      if (visit.remainingAfter === 0) announceCheckout(playerMap[playerId]?.name || "", settings.voiceLang);
-      else if (!bust) announceScore(visit.total, settings.voiceLang);
+      if (visit.remainingAfter === 0) announceCheckout(playerMap[playerId]?.name || "", settings.voiceLang, settings.voicePack);
+      else if (!bust) announceScore(visit.total, settings.voiceLang, settings.voicePack);
     }
     if (visit.total === 180) { setConfetti(true); setTimeout(() => setConfetti(false), 1500); }
 
@@ -401,8 +401,8 @@ function Inner() {
     if (settings.sound) beep(bust ? 220 : total === 180 ? 1320 : 660, bust ? 200 : 80);
     if (settings.haptic) vibrate(bust ? [40,40,40] : [20]);
     if (settings.voice) {
-      if (visit.remainingAfter === 0) announceCheckout(playerMap[playerId]?.name || "", settings.voiceLang);
-      else if (!bust) announceScore(visit.total, settings.voiceLang);
+      if (visit.remainingAfter === 0) announceCheckout(playerMap[playerId]?.name || "", settings.voiceLang, settings.voicePack);
+      else if (!bust) announceScore(visit.total, settings.voiceLang, settings.voicePack);
     }
     if (visit.total === 180) { setConfetti(true); setTimeout(() => setConfetti(false), 1500); }
 

@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start -p 3000"
+    "start": "next start -p 3000",
+    "audio:pdc": "node scripts/generate-audio.mjs pdc",
+    "audio:de": "node scripts/generate-audio.mjs de"
   },
   "dependencies": {
     "clsx": "2.1.1",

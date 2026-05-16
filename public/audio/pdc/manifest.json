@@ -1,0 +1,776 @@
+{
+  "pack": "pdc",
+  "voiceId": "gU0LNdkMOQCOrPrwtbee",
+  "model": "eleven_multilingual_v2",
+  "generatedAt": "2026-05-16T13:03:15.726Z",
+  "files": [
+    {
+      "key": "score_0",
+      "text": "No score."
+    },
+    {
+      "key": "score_1",
+      "text": "one."
+    },
+    {
+      "key": "score_2",
+      "text": "two."
+    },
+    {
+      "key": "score_3",
+      "text": "three."
+    },
+    {
+      "key": "score_4",
+      "text": "four."
+    },
+    {
+      "key": "score_5",
+      "text": "five."
+    },
+    {
+      "key": "score_6",
+      "text": "six."
+    },
+    {
+      "key": "score_7",
+      "text": "seven."
+    },
+    {
+      "key": "score_8",
+      "text": "eight."
+    },
+    {
+      "key": "score_9",
+      "text": "nine."
+    },
+    {
+      "key": "score_10",
+      "text": "ten."
+    },
+    {
+      "key": "score_11",
+      "text": "Legs eleven."
+    },
+    {
+      "key": "score_12",
+      "text": "twelve."
+    },
+    {
+      "key": "score_13",
+      "text": "thirteen."
+    },
+    {
+      "key": "score_14",
+      "text": "fourteen."
+    },
+    {
+      "key": "score_15",
+      "text": "fifteen."
+    },
+    {
+      "key": "score_16",
+      "text": "sixteen."
+    },
+    {
+      "key": "score_17",
+      "text": "seventeen."
+    },
+    {
+      "key": "score_18",
+      "text": "eighteen."
+    },
+    {
+      "key": "score_19",
+      "text": "nineteen."
+    },
+    {
+      "key": "score_20",
+      "text": "twenty."
+    },
+    {
+      "key": "score_21",
+      "text": "twenty-one."
+    },
+    {
+      "key": "score_22",
+      "text": "twenty-two."
+    },
+    {
+      "key": "score_23",
+      "text": "twenty-three."
+    },
+    {
+      "key": "score_24",
+      "text": "twenty-four."
+    },
+    {
+      "key": "score_25",
+      "text": "twenty-five."
+    },
+    {
+      "key": "score_26",
+      "text": "Bed and breakfast, twenty-six."
+    },
+    {
+      "key": "score_27",
+      "text": "twenty-seven."
+    },
+    {
+      "key": "score_28",
+      "text": "twenty-eight."
+    },
+    {
+      "key": "score_29",
+      "text": "twenty-nine."
+    },
+    {
+      "key": "score_30",
+      "text": "thirty."
+    },
+    {
+      "key": "score_31",
+      "text": "thirty-one."
+    },
+    {
+      "key": "score_32",
+      "text": "thirty-two."
+    },
+    {
+      "key": "score_33",
+      "text": "thirty-three."
+    },
+    {
+      "key": "score_34",
+      "text": "thirty-four."
+    },
+    {
+      "key": "score_35",
+      "text": "thirty-five."
+    },
+    {
+      "key": "score_36",
+      "text": "thirty-six."
+    },
+    {
+      "key": "score_37",
+      "text": "thirty-seven."
+    },
+    {
+      "key": "score_38",
+      "text": "thirty-eight."
+    },
+    {
+      "key": "score_39",
+      "text": "thirty-nine."
+    },
+    {
+      "key": "score_40",
+      "text": "forty."
+    },
+    {
+      "key": "score_41",
+      "text": "forty-one."
+    },
+    {
+      "key": "score_42",
+      "text": "forty-two."
+    },
+    {
+      "key": "score_43",
+      "text": "forty-three."
+    },
+    {
+      "key": "score_44",
+      "text": "forty-four."
+    },
+    {
+      "key": "score_45",
+      "text": "forty-five."
+    },
+    {
+      "key": "score_46",
+      "text": "forty-six."
+    },
+    {
+      "key": "score_47",
+      "text": "forty-seven."
+    },
+    {
+      "key": "score_48",
+      "text": "forty-eight."
+    },
+    {
+      "key": "score_49",
+      "text": "forty-nine."
+    },
+    {
+      "key": "score_50",
+      "text": "fifty."
+    },
+    {
+      "key": "score_51",
+      "text": "fifty-one."
+    },
+    {
+      "key": "score_52",
+      "text": "fifty-two."
+    },
+    {
+      "key": "score_53",
+      "text": "fifty-three."
+    },
+    {
+      "key": "score_54",
+      "text": "fifty-four."
+    },
+    {
+      "key": "score_55",
+      "text": "fifty-five."
+    },
+    {
+      "key": "score_56",
+      "text": "fifty-six."
+    },
+    {
+      "key": "score_57",
+      "text": "fifty-seven."
+    },
+    {
+      "key": "score_58",
+      "text": "fifty-eight."
+    },
+    {
+      "key": "score_59",
+      "text": "fifty-nine."
+    },
+    {
+      "key": "score_60",
+      "text": "sixty."
+    },
+    {
+      "key": "score_61",
+      "text": "sixty-one."
+    },
+    {
+      "key": "score_62",
+      "text": "sixty-two."
+    },
+    {
+      "key": "score_63",
+      "text": "sixty-three."
+    },
+    {
+      "key": "score_64",
+      "text": "sixty-four."
+    },
+    {
+      "key": "score_65",
+      "text": "sixty-five."
+    },
+    {
+      "key": "score_66",
+      "text": "sixty-six."
+    },
+    {
+      "key": "score_67",
+      "text": "sixty-seven."
+    },
+    {
+      "key": "score_68",
+      "text": "sixty-eight."
+    },
+    {
+      "key": "score_69",
+      "text": "sixty-nine."
+    },
+    {
+      "key": "score_70",
+      "text": "seventy."
+    },
+    {
+      "key": "score_71",
+      "text": "seventy-one."
+    },
+    {
+      "key": "score_72",
+      "text": "seventy-two."
+    },
+    {
+      "key": "score_73",
+      "text": "seventy-three."
+    },
+    {
+      "key": "score_74",
+      "text": "seventy-four."
+    },
+    {
+      "key": "score_75",
+      "text": "seventy-five."
+    },
+    {
+      "key": "score_76",
+      "text": "seventy-six."
+    },
+    {
+      "key": "score_77",
+      "text": "seventy-seven."
+    },
+    {
+      "key": "score_78",
+      "text": "seventy-eight."
+    },
+    {
+      "key": "score_79",
+      "text": "seventy-nine."
+    },
+    {
+      "key": "score_80",
+      "text": "eighty."
+    },
+    {
+      "key": "score_81",
+      "text": "eighty-one."
+    },
+    {
+      "key": "score_82",
+      "text": "eighty-two."
+    },
+    {
+      "key": "score_83",
+      "text": "eighty-three."
+    },
+    {
+      "key": "score_84",
+      "text": "eighty-four."
+    },
+    {
+      "key": "score_85",
+      "text": "eighty-five."
+    },
+    {
+      "key": "score_86",
+      "text": "eighty-six."
+    },
+    {
+      "key": "score_87",
+      "text": "eighty-seven."
+    },
+    {
+      "key": "score_88",
+      "text": "eighty-eight."
+    },
+    {
+      "key": "score_89",
+      "text": "eighty-nine."
+    },
+    {
+      "key": "score_90",
+      "text": "ninety."
+    },
+    {
+      "key": "score_91",
+      "text": "ninety-one."
+    },
+    {
+      "key": "score_92",
+      "text": "ninety-two."
+    },
+    {
+      "key": "score_93",
+      "text": "ninety-three."
+    },
+    {
+      "key": "score_94",
+      "text": "ninety-four."
+    },
+    {
+      "key": "score_95",
+      "text": "ninety-five."
+    },
+    {
+      "key": "score_96",
+      "text": "ninety-six."
+    },
+    {
+      "key": "score_97",
+      "text": "ninety-seven."
+    },
+    {
+      "key": "score_98",
+      "text": "ninety-eight."
+    },
+    {
+      "key": "score_99",
+      "text": "ninety-nine."
+    },
+    {
+      "key": "score_100",
+      "text": "One hundred!"
+    },
+    {
+      "key": "score_101",
+      "text": "one hundred and one."
+    },
+    {
+      "key": "score_102",
+      "text": "one hundred and two."
+    },
+    {
+      "key": "score_103",
+      "text": "one hundred and three."
+    },
+    {
+      "key": "score_104",
+      "text": "one hundred and four."
+    },
+    {
+      "key": "score_105",
+      "text": "one hundred and five."
+    },
+    {
+      "key": "score_106",
+      "text": "one hundred and six."
+    },
+    {
+      "key": "score_107",
+      "text": "one hundred and seven."
+    },
+    {
+      "key": "score_108",
+      "text": "one hundred and eight."
+    },
+    {
+      "key": "score_109",
+      "text": "one hundred and nine."
+    },
+    {
+      "key": "score_110",
+      "text": "one hundred and ten."
+    },
+    {
+      "key": "score_111",
+      "text": "one hundred and eleven."
+    },
+    {
+      "key": "score_112",
+      "text": "one hundred and twelve."
+    },
+    {
+      "key": "score_113",
+      "text": "one hundred and thirteen."
+    },
+    {
+      "key": "score_114",
+      "text": "one hundred and fourteen."
+    },
+    {
+      "key": "score_115",
+      "text": "one hundred and fifteen."
+    },
+    {
+      "key": "score_116",
+      "text": "one hundred and sixteen."
+    },
+    {
+      "key": "score_117",
+      "text": "one hundred and seventeen."
+    },
+    {
+      "key": "score_118",
+      "text": "one hundred and eighteen."
+    },
+    {
+      "key": "score_119",
+      "text": "one hundred and nineteen."
+    },
+    {
+      "key": "score_120",
+      "text": "one hundred and twenty."
+    },
+    {
+      "key": "score_121",
+      "text": "one hundred and twenty-one."
+    },
+    {
+      "key": "score_122",
+      "text": "one hundred and twenty-two."
+    },
+    {
+      "key": "score_123",
+      "text": "one hundred and twenty-three."
+    },
+    {
+      "key": "score_124",
+      "text": "one hundred and twenty-four."
+    },
+    {
+      "key": "score_125",
+      "text": "one hundred and twenty-five."
+    },
+    {
+      "key": "score_126",
+      "text": "one hundred and twenty-six."
+    },
+    {
+      "key": "score_127",
+      "text": "one hundred and twenty-seven."
+    },
+    {
+      "key": "score_128",
+      "text": "one hundred and twenty-eight."
+    },
+    {
+      "key": "score_129",
+      "text": "one hundred and twenty-nine."
+    },
+    {
+      "key": "score_130",
+      "text": "one hundred and thirty."
+    },
+    {
+      "key": "score_131",
+      "text": "one hundred and thirty-one."
+    },
+    {
+      "key": "score_132",
+      "text": "one hundred and thirty-two."
+    },
+    {
+      "key": "score_133",
+      "text": "one hundred and thirty-three."
+    },
+    {
+      "key": "score_134",
+      "text": "one hundred and thirty-four."
+    },
+    {
+      "key": "score_135",
+      "text": "one hundred and thirty-five."
+    },
+    {
+      "key": "score_136",
+      "text": "one hundred and thirty-six."
+    },
+    {
+      "key": "score_137",
+      "text": "one hundred and thirty-seven."
+    },
+    {
+      "key": "score_138",
+      "text": "one hundred and thirty-eight."
+    },
+    {
+      "key": "score_139",
+      "text": "one hundred and thirty-nine."
+    },
+    {
+      "key": "score_140",
+      "text": "One hundred and forty!"
+    },
+    {
+      "key": "score_141",
+      "text": "one hundred and forty-one."
+    },
+    {
+      "key": "score_142",
+      "text": "one hundred and forty-two."
+    },
+    {
+      "key": "score_143",
+      "text": "one hundred and forty-three."
+    },
+    {
+      "key": "score_144",
+      "text": "one hundred and forty-four."
+    },
+    {
+      "key": "score_145",
+      "text": "one hundred and forty-five."
+    },
+    {
+      "key": "score_146",
+      "text": "one hundred and forty-six."
+    },
+    {
+      "key": "score_147",
+      "text": "one hundred and forty-seven."
+    },
+    {
+      "key": "score_148",
+      "text": "one hundred and forty-eight."
+    },
+    {
+      "key": "score_149",
+      "text": "one hundred and forty-nine."
+    },
+    {
+      "key": "score_150",
+      "text": "one hundred and fifty."
+    },
+    {
+      "key": "score_151",
+      "text": "one hundred and fifty-one."
+    },
+    {
+      "key": "score_152",
+      "text": "one hundred and fifty-two."
+    },
+    {
+      "key": "score_153",
+      "text": "one hundred and fifty-three."
+    },
+    {
+      "key": "score_154",
+      "text": "one hundred and fifty-four."
+    },
+    {
+      "key": "score_155",
+      "text": "one hundred and fifty-five."
+    },
+    {
+      "key": "score_156",
+      "text": "one hundred and fifty-six."
+    },
+    {
+      "key": "score_157",
+      "text": "one hundred and fifty-seven."
+    },
+    {
+      "key": "score_158",
+      "text": "one hundred and fifty-eight."
+    },
+    {
+      "key": "score_159",
+      "text": "one hundred and fifty-nine."
+    },
+    {
+      "key": "score_160",
+      "text": "one hundred and sixty."
+    },
+    {
+      "key": "score_161",
+      "text": "one hundred and sixty-one."
+    },
+    {
+      "key": "score_162",
+      "text": "one hundred and sixty-two."
+    },
+    {
+      "key": "score_163",
+      "text": "one hundred and sixty-three."
+    },
+    {
+      "key": "score_164",
+      "text": "one hundred and sixty-four."
+    },
+    {
+      "key": "score_165",
+      "text": "one hundred and sixty-five."
+    },
+    {
+      "key": "score_166",
+      "text": "one hundred and sixty-six."
+    },
+    {
+      "key": "score_167",
+      "text": "one hundred and sixty-seven."
+    },
+    {
+      "key": "score_168",
+      "text": "one hundred and sixty-eight."
+    },
+    {
+      "key": "score_169",
+      "text": "one hundred and sixty-nine."
+    },
+    {
+      "key": "score_170",
+      "text": "one hundred and seventy."
+    },
+    {
+      "key": "score_171",
+      "text": "one hundred and seventy-one."
+    },
+    {
+      "key": "score_172",
+      "text": "one hundred and seventy-two."
+    },
+    {
+      "key": "score_173",
+      "text": "one hundred and seventy-three."
+    },
+    {
+      "key": "score_174",
+      "text": "one hundred and seventy-four."
+    },
+    {
+      "key": "score_175",
+      "text": "one hundred and seventy-five."
+    },
+    {
+      "key": "score_176",
+      "text": "one hundred and seventy-six."
+    },
+    {
+      "key": "score_177",
+      "text": "one hundred and seventy-seven."
+    },
+    {
+      "key": "score_178",
+      "text": "one hundred and seventy-eight."
+    },
+    {
+      "key": "score_179",
+      "text": "one hundred and seventy-nine."
+    },
+    {
+      "key": "score_180",
+      "text": "One hundred and eighty!"
+    },
+    {
+      "key": "bust",
+      "text": "Bust!"
+    },
+    {
+      "key": "game_shot",
+      "text": "Game shot!"
+    },
+    {
+      "key": "game_on",
+      "text": "Game on!"
+    },
+    {
+      "key": "leg",
+      "text": "Leg."
+    },
+    {
+      "key": "set",
+      "text": "Set!"
+    },
+    {
+      "key": "match",
+      "text": "Match!"
+    },
+    {
+      "key": "one_hundred_eighty",
+      "text": "One hundred and eighty!"
+    },
+    {
+      "key": "tonpus",
+      "text": "Ton plus!"
+    },
+    {
+      "key": "ton",
+      "text": "Ton!"
+    },
+    {
+      "key": "welcome",
+      "text": "Welcome to Bullseye."
+    },
+    {
+      "key": "your_turn",
+      "text": "Your throw."
+    }
+  ]
+}
