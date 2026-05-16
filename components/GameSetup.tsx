@@ -22,14 +22,19 @@ export default function GameSetup({
   const [ids, setIds] = useState<string[]>([]);
   return (
     <>
-      <Header title={`${title} · Setup`} />
+      <Header title={title} />
       <div className="space-y-4">
-        {description && <p className="text-muted">{description}</p>}
+        {description && (
+          <div className="card p-5">
+            <div className="chip mb-2">Spielmodus</div>
+            <p className="text-sm leading-relaxed text-muted">{description}</p>
+          </div>
+        )}
         {extra}
-        <div className="card p-4">
+        <div className="card p-5">
           <PlayerPicker selected={ids} onChange={setIds} min={min} max={max}/>
         </div>
-        <button onClick={() => onStart(ids)} disabled={ids.length < min} className="btn-primary w-full text-lg">
+        <button onClick={() => onStart(ids)} disabled={ids.length < min} className="btn-primary w-full h-14 text-base">
           Starten →
         </button>
       </div>

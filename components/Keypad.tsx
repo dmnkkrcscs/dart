@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/** Total-input keypad: enter the 3-dart total (0..180) and submit. */
 export default function Keypad({
   onSubmit,
   onUndo,
@@ -46,27 +45,32 @@ export default function Keypad({
   return (
     <div className="space-y-3">
       <div className="card flex items-center justify-between p-4">
-        <div className="text-xs uppercase tracking-wider text-muted">Wurf-Gesamt</div>
-        <div className="score-big text-4xl font-black">{value || "0"}</div>
+        <div className="chip">Wurf-Gesamt</div>
+        <div className="score-big text-[40px] font-black leading-none num-tnum">{value || "0"}</div>
       </div>
-      {hint && <div className="text-center text-sm text-accent2 font-semibold">{hint}</div>}
+      {hint && (
+        <div className="rounded-xl border border-accent2/40 bg-accent2/10 px-4 py-2.5 text-center text-sm font-bold text-accent2">
+          {hint}
+        </div>
+      )}
       <div className="grid grid-cols-3 gap-2">
         {keys.map(k => (
-          <button key={k} onClick={() => press(k)} className="btn-ghost h-14 text-2xl font-bold">{k}</button>
+          <button key={k} onClick={() => press(k)} className="btn-ghost h-14 text-2xl font-black num-tnum">{k}</button>
         ))}
-        <button onClick={backspace} className="btn-ghost h-14 text-xl">⌫</button>
-        <button onClick={() => press("0")} className="btn-ghost h-14 text-2xl font-bold">0</button>
+        <button onClick={backspace} className="btn-ghost h-14 text-xl" aria-label="Löschen">⌫</button>
+        <button onClick={() => press("0")} className="btn-ghost h-14 text-2xl font-black num-tnum">0</button>
         <button onClick={submit} className="btn-primary h-14 text-xl">OK</button>
       </div>
-      <div className="grid grid-cols-4 gap-2 text-sm">
+      <div className="grid grid-cols-5 gap-1.5 text-sm">
         {[26, 41, 45, 60, 81, 100, 121, 140, 180].map(n => (
-          <button key={n} onClick={() => quick(n)} className="rounded-lg bg-panel2 py-2 font-semibold hover:bg-line">
+          <button key={n} onClick={() => quick(n)}
+            className="rounded-lg border border-line bg-panel2 py-2 font-bold num-tnum hover:border-line2 hover:bg-panel3">
             {n}
           </button>
         ))}
-        <button onClick={clear} className="rounded-lg bg-panel2 py-2 font-semibold hover:bg-line">CLR</button>
-        <button onClick={onUndo} className="rounded-lg bg-panel2 py-2 font-semibold hover:bg-line">↶ Undo</button>
+        <button onClick={clear} className="rounded-lg border border-line bg-panel2 py-2 text-xs font-bold uppercase text-muted hover:bg-panel3">Clr</button>
       </div>
+      <button onClick={onUndo} className="btn-outline w-full !py-2 text-sm">↶ Undo</button>
     </div>
   );
 }

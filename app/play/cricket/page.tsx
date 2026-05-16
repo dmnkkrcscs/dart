@@ -140,31 +140,32 @@ export default function CricketPage() {
         </div>
       )}
 
-      <section className="card mb-4 overflow-hidden">
-        <div className="grid" style={{ gridTemplateColumns: `1.5fr repeat(${NUMBERS.length}, 1fr) 1fr` }}>
-          <div className="border-b border-line bg-panel2 p-2 text-xs uppercase text-muted">Spieler</div>
+      <section className="card mb-4 overflow-x-auto no-scrollbar">
+        <div className="grid min-w-[480px]" style={{ gridTemplateColumns: `minmax(120px,1.6fr) repeat(${NUMBERS.length}, minmax(36px,1fr)) minmax(48px,0.9fr)` }}>
+          <div className="sticky left-0 z-10 border-b border-line bg-panel2 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-muted">Spieler</div>
           {NUMBERS.map(n => (
-            <div key={n} className="border-b border-line bg-panel2 p-2 text-center text-xs font-bold">{n === 25 ? "Bull" : n}</div>
+            <div key={n} className="border-b border-line bg-panel2 py-2 text-center text-[11px] font-black num-tnum">{n === 25 ? "B" : n}</div>
           ))}
-          <div className="border-b border-line bg-panel2 p-2 text-center text-xs font-bold">Pkt</div>
+          <div className="border-b border-line bg-panel2 py-2 text-center text-[10px] font-bold uppercase tracking-wider text-muted">Pkt</div>
           {activePlayers.map(p => {
             const isCur = p.id === currentId;
             return (
               <div key={p.id} className="contents">
-                <div className={`flex items-center gap-2 p-2 ${isCur ? "bg-accent/10" : ""}`}>
-                  <span className="grid h-6 w-6 place-items-center rounded-full text-xs font-black" style={{background: p.color}}>{p.avatar}</span>
-                  <span className="truncate text-sm">{p.name}</span>
+                <div className={`sticky left-0 z-10 flex items-center gap-2 px-3 py-2.5 ${isCur ? "bg-accent/[0.08]" : "bg-panel"}`}>
+                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-[11px] font-black text-black/85" style={{background: p.color}}>{p.avatar}</span>
+                  <span className="truncate text-sm font-semibold">{p.name}</span>
                 </div>
                 {NUMBERS.map(n => {
                   const c = cricket.marks[p.id][n];
                   const closedByAll = cricket.closed[n] !== null;
+                  const sym = markSym(c, closedByAll);
                   return (
-                    <div key={n} className={`grid place-items-center p-2 font-mono text-lg ${isCur ? "bg-accent/10" : ""} ${closedByAll ? "text-muted" : "text-good"}`}>
-                      {markSym(c, closedByAll)}
+                    <div key={n} className={`grid place-items-center py-2 font-mono text-lg leading-none ${isCur ? "bg-accent/[0.08]" : ""} ${closedByAll ? "text-dim" : c >= 3 ? "text-good" : c > 0 ? "text-ink" : "text-dim"}`}>
+                      {sym}
                     </div>
                   );
                 })}
-                <div className={`grid place-items-center p-2 font-black ${isCur ? "bg-accent/10" : ""}`}>{match.scores[p.id]}</div>
+                <div className={`grid place-items-center py-2 text-sm font-black num-tnum ${isCur ? "bg-accent/[0.08]" : ""}`}>{match.scores[p.id]}</div>
               </div>
             );
           })}
@@ -173,15 +174,18 @@ export default function CricketPage() {
 
       {!match.winnerId && (
         <>
-          <div className="mb-2 text-xs uppercase tracking-wider text-muted">Treffer für <b className="text-ink">{playerMap[currentId]?.name}</b></div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="mb-2 flex items-center justify-between">
+            <span className="chip">Wurf von</span>
+            <span className="text-sm font-bold">{playerMap[currentId]?.name}</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {NUMBERS.map(n => (
-              <div key={n} className="card p-2">
-                <div className="mb-1 text-center font-bold">{n === 25 ? "Bull" : n}</div>
+              <div key={n} className="card p-2.5">
+                <div className="mb-1.5 text-center text-sm font-black num-tnum">{n === 25 ? "Bull" : n}</div>
                 <div className="grid grid-cols-3 gap-1">
-                  <button onClick={() => hit(n, 1)} className="btn-ghost !py-2">S</button>
-                  <button onClick={() => hit(n, 2)} className="btn-ghost !py-2">D</button>
-                  <button onClick={() => hit(n, 3)} disabled={n===25} className={`btn-ghost !py-2 ${n===25 ? "opacity-30" : ""}`}>T</button>
+                  <button onClick={() => hit(n, 1)} className="btn-ghost !py-2 !px-0 text-sm font-bold">S</button>
+                  <button onClick={() => hit(n, 2)} className="btn-ghost !py-2 !px-0 text-sm font-bold">D</button>
+                  <button onClick={() => hit(n, 3)} disabled={n===25} className="btn-ghost !py-2 !px-0 text-sm font-bold disabled:opacity-25">T</button>
                 </div>
               </div>
             ))}

@@ -195,49 +195,46 @@ function Inner() {
     return (
       <>
         <Header title="X01 Setup" />
-        <div className="space-y-5">
-          <div className="card p-4">
-            <div className="mb-3 text-xs uppercase tracking-wider text-muted">Startpunkte</div>
+        <div className="space-y-4">
+          <div className="card p-5">
+            <div className="mb-3 chip">Startpunkte</div>
             <div className="grid grid-cols-3 gap-2">
               {[101,170,301,501,701,1001].map(n => (
                 <button key={n}
                   onClick={() => setConfig(c => ({...c, startScore: n as X01Config["startScore"]}))}
-                  className={`btn ${config.startScore === n ? "bg-accent text-white" : "bg-panel2"} font-bold`}>{n}</button>
+                  className={`btn h-12 font-black num-tnum ${config.startScore === n ? "btn-primary" : "btn-ghost"}`}>{n}</button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="card p-4">
-              <div className="mb-2 text-xs uppercase tracking-wider text-muted">Out-Mode</div>
-              <div className="grid grid-cols-3 gap-2">
-                {(["single","double","master"] as const).map(m => (
-                  <button key={m}
-                    onClick={() => setConfig(c => ({...c, outMode: m}))}
-                    className={`btn ${config.outMode === m ? "bg-accent text-white" : "bg-panel2"} text-sm`}>{m}</button>
-                ))}
-              </div>
-            </div>
-            <div className="card p-4">
-              <div className="mb-2 text-xs uppercase tracking-wider text-muted">First to</div>
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-muted">Legs</label>
-                <input type="number" min={1} max={9}
-                  className="w-16 rounded-lg bg-panel2 px-2 py-2 text-center font-bold"
-                  value={config.legs} onChange={e => setConfig(c => ({...c, legs: Math.max(1, parseInt(e.target.value || "1"))}))}/>
-                <label className="text-sm text-muted">Sets</label>
-                <input type="number" min={1} max={5}
-                  className="w-16 rounded-lg bg-panel2 px-2 py-2 text-center font-bold"
-                  value={config.sets} onChange={e => setConfig(c => ({...c, sets: Math.max(1, parseInt(e.target.value || "1"))}))}/>
-              </div>
+          <div className="card p-5">
+            <div className="mb-3 chip">Out-Mode</div>
+            <div className="grid grid-cols-3 gap-2">
+              {([
+                {k:"single", label:"Single"},
+                {k:"double", label:"Double"},
+                {k:"master", label:"Master"},
+              ] as const).map(m => (
+                <button key={m.k}
+                  onClick={() => setConfig(c => ({...c, outMode: m.k}))}
+                  className={`btn ${config.outMode === m.k ? "btn-primary" : "btn-ghost"} text-sm`}>{m.label}</button>
+              ))}
             </div>
           </div>
 
-          <div className="card p-4">
+          <div className="card p-5">
+            <div className="mb-3 chip">First to…</div>
+            <div className="grid grid-cols-2 gap-3">
+              <Stepper label="Legs" value={config.legs} min={1} max={9} onChange={v => setConfig(c => ({...c, legs: v}))}/>
+              <Stepper label="Sets" value={config.sets} min={1} max={5} onChange={v => setConfig(c => ({...c, sets: v}))}/>
+            </div>
+          </div>
+
+          <div className="card p-5">
             <PlayerPicker selected={selectedIds} onChange={setSelectedIds} min={1} max={8}/>
           </div>
 
-          <button onClick={start} disabled={!selectedIds.length} className="btn-primary w-full text-lg">
+          <button onClick={start} disabled={!selectedIds.length} className="btn-primary w-full h-14 text-base">
             Match starten →
           </button>
         </div>
@@ -258,32 +255,49 @@ function Inner() {
 
   return (
     <>
-      <Header title={`${config.startScore} · Best of ${config.legs * 2 - 1}`}
-        right={<button onClick={quit} className="btn-ghost !px-3 !py-2">✕</button>}/>
+      <Header title={`${config.startScore}`}
+        right={
+          <div className="flex items-center gap-2">
+            <span className="chip">Bo{config.legs * 2 - 1}</span>
+            <button onClick={quit} className="btn-ghost !px-3 !py-2" aria-label="Beenden">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            </button>
+          </div>
+        }/>
 
       {/* Scoreboard */}
-      <section className="card mb-4 overflow-hidden">
+      <section className="card mb-4 divide-y divide-line">
         {activePlayers.map((p, i) => {
           const isCur = i === match.currentPlayerIdx;
           const rem = match.scores[p.id];
           const co = hasCheckout(rem) ? getCheckout(rem, 3)?.join(" · ") : null;
+          const v = match.visits.filter(x => x.playerId === p.id);
+          let t = 0, d = 0; v.forEach(x => { t += x.total; d += x.darts.length; });
+          const avgVal = d > 0 ? ((t / d) * 3).toFixed(1) : "—";
+          const remStr = String(rem);
+          const remSize = isCur
+            ? remStr.length >= 4 ? "text-[40px]" : remStr.length === 3 ? "text-[52px]" : "text-[60px]"
+            : remStr.length >= 4 ? "text-2xl" : "text-3xl";
           return (
-            <div key={p.id} className={`flex items-center justify-between p-4 ${i > 0 ? "border-t border-line" : ""} ${isCur ? "bg-accent/5" : ""}`}>
-              <div className="flex items-center gap-3">
-                <span className={`grid h-10 w-10 place-items-center rounded-full font-black ${isCur ? "ring-2 ring-accent" : ""}`}
-                      style={{ background: p.color }}>{p.avatar}</span>
-                <div>
-                  <div className="font-bold">{p.name}</div>
-                  <div className="text-xs text-muted">Legs: {match.legsWon[p.id] || 0}/{config.legs} · Avg: {(() => {
-                    const v = match.visits.filter(x => x.playerId === p.id);
-                    let t=0,d=0; v.forEach(x=>{t+=x.total;d+=x.darts.length;});
-                    return d>0 ? ((t/d)*3).toFixed(1) : "—";
-                  })()}</div>
+            <div key={p.id} className={`relative flex items-center gap-3 px-4 py-3 ${isCur ? "bg-accent/[0.06]" : ""}`}>
+              {isCur && <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-grad-accent"/>}
+              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl font-black text-[15px] text-black/85 ${isCur ? "ring-2 ring-accent ring-offset-2 ring-offset-panel" : ""}`}
+                    style={{ background: p.color }}>{p.avatar}</span>
+              <div className="min-w-0 flex-1">
+                <div className="font-bold truncate text-[15px]">{p.name}</div>
+                <div className="mt-0.5 flex items-center gap-2 text-[11px] text-muted">
+                  <span className="num-tnum">Legs {match.legsWon[p.id] || 0}/{config.legs}</span>
+                  <span className="text-dim">·</span>
+                  <span className="num-tnum">Avg {avgVal}</span>
                 </div>
               </div>
-              <div className="text-right">
-                <div className={`score-big font-black ${isCur ? "text-5xl text-accent" : "text-2xl text-ink"}`}>{rem}</div>
-                {isCur && co && <div className="text-xs text-accent2 font-semibold">CO: {co}</div>}
+              <div className="text-right min-w-0">
+                <div className={`score-big font-black leading-none ${remSize} ${isCur ? "text-ink" : "text-muted"}`}>{rem}</div>
+                {isCur && co && (
+                  <div className="mt-1 inline-flex items-center gap-1 rounded-md bg-accent2/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent2">
+                    <span className="opacity-70">CO</span>{co}
+                  </div>
+                )}
               </div>
             </div>
           );
@@ -433,6 +447,19 @@ function Inner() {
       currentPlayerIdx: nextIdx,
     });
   }
+}
+
+function Stepper({ label, value, min, max, onChange }: { label: string; value: number; min: number; max: number; onChange: (v:number)=>void }) {
+  return (
+    <div className="rounded-xl bg-panel2 border border-line p-2">
+      <div className="px-1 pb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{label}</div>
+      <div className="flex items-center justify-between gap-1">
+        <button onClick={() => onChange(Math.max(min, value - 1))} className="btn-ghost !px-3 !py-1.5 !rounded-lg text-base">−</button>
+        <span className="num-tnum text-xl font-black w-8 text-center">{value}</span>
+        <button onClick={() => onChange(Math.min(max, value + 1))} className="btn-ghost !px-3 !py-1.5 !rounded-lg text-base">+</button>
+      </div>
+    </div>
+  );
 }
 
 export default function Page() {

@@ -35,38 +35,41 @@ export default function PlayerPicker({
 
   return (
     <div>
-      <div className="mb-2 text-xs uppercase tracking-wider text-muted">
-        Spieler ({selected.length}/{max}) — min. {min}
+      <div className="mb-3 flex items-center justify-between">
+        <span className="chip">Spieler</span>
+        <span className="text-[11px] font-bold text-muted num-tnum">{selected.length}/{max} · min {min}</span>
       </div>
-      <div className="flex flex-wrap gap-2 mb-3">
-        {players.map((p: Player) => {
-          const idx = selected.indexOf(p.id);
-          const active = idx >= 0;
-          return (
-            <button
-              key={p.id}
-              onClick={() => toggle(p.id)}
-              className={`flex items-center gap-2 rounded-full border px-3 py-2 transition ${active ? "border-accent bg-accent/15" : "border-line bg-panel2"}`}
-            >
-              <span className="grid h-7 w-7 place-items-center rounded-full text-sm font-black"
-                    style={{ background: p.color }}>
-                {p.avatar || p.name[0]}
-              </span>
-              <span className="font-semibold">{p.name}</span>
-              {active && <span className="text-xs text-muted">#{idx + 1}</span>}
-            </button>
-          );
-        })}
-      </div>
+      {players.length > 0 && (
+        <div className="mb-3 flex flex-wrap gap-2">
+          {players.map((p: Player) => {
+            const idx = selected.indexOf(p.id);
+            const active = idx >= 0;
+            return (
+              <button
+                key={p.id}
+                onClick={() => toggle(p.id)}
+                className={`group flex items-center gap-2 rounded-full border px-2.5 py-1.5 transition ${active ? "border-accent bg-accent/15" : "border-line bg-panel2 hover:border-line2"}`}
+              >
+                <span className="grid h-6 w-6 place-items-center rounded-full text-[11px] font-black text-black/85"
+                      style={{ background: p.color }}>
+                  {p.avatar || p.name[0]}
+                </span>
+                <span className="text-sm font-semibold">{p.name}</span>
+                {active && <span className="num-tnum rounded-full bg-accent px-1.5 text-[10px] font-black text-white">{idx + 1}</span>}
+              </button>
+            );
+          })}
+        </div>
+      )}
       <div className="flex gap-2">
         <input
           value={name}
           onChange={e => setName(e.target.value)}
           onKeyDown={e => e.key === "Enter" && quickAdd()}
           placeholder="Neuer Spieler…"
-          className="flex-1 rounded-xl border border-line bg-panel2 px-3 py-2 outline-none focus:border-accent"
+          className="flex-1 rounded-xl border border-line bg-panel2 px-3 py-2.5 text-sm outline-none focus:border-accent"
         />
-        <button onClick={quickAdd} className="btn-outline">+ Hinzufügen</button>
+        <button onClick={quickAdd} className="btn-outline shrink-0 text-sm">+ Hinzufügen</button>
       </div>
     </div>
   );
