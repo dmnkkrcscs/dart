@@ -18,6 +18,7 @@ type DB = {
   history: Match[];
   settings: Settings;
   lastConfig: any;
+  backupCode: string | null;
 
   addPlayer: (name: string) => Player;
   renamePlayer: (id: string, name: string) => void;
@@ -29,6 +30,7 @@ type DB = {
 
   updateSettings: (patch: Partial<Settings>) => void;
   setLastConfig: (cfg: any) => void;
+  setBackupCode: (code: string | null) => void;
 };
 
 export const useDB = create<DB>()(
@@ -38,6 +40,7 @@ export const useDB = create<DB>()(
       history: [],
       settings: DEFAULT_SETTINGS,
       lastConfig: null,
+      backupCode: null,
 
       addPlayer: (name) => {
         const p: Player = {
@@ -68,6 +71,7 @@ export const useDB = create<DB>()(
 
       updateSettings: (patch) => set({ settings: { ...get().settings, ...patch } }),
       setLastConfig: (cfg) => set({ lastConfig: cfg }),
+      setBackupCode: (code) => set({ backupCode: code }),
     }),
     { name: "bullseye-v1" }
   )

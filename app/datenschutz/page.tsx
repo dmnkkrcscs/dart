@@ -15,10 +15,12 @@ export default function DatenschutzPage() {
       <div className="space-y-3">
         <LegalSection title="Kurzfassung">
           <p>
-            Bullseye ist ein <strong>Privatprojekt</strong> und funktioniert <strong>vollständig offline</strong>.
-            Alle Daten – Spieler:innen, Match-Historie, Einstellungen – bleiben{" "}
-            <strong>ausschließlich lokal auf deinem Gerät</strong>. Es gibt keinen Account, keinen
-            Cloud-Sync, kein Tracking, keine Cookies und keine Drittanbieter-Ressourcen.
+            Bullseye ist ein <strong>Privatprojekt</strong>. Alle Daten – Spieler:innen,
+            Match-Historie, Einstellungen – bleiben standardmäßig{" "}
+            <strong>lokal auf deinem Gerät</strong>. Das optionale Cloud-Backup überträgt deine
+            Daten auf einen selbst-gehosteten Server – ausschließlich dann, wenn du es aktiv
+            einschaltest. Es gibt keinen Account, kein Tracking, keine Cookies und keine
+            Drittanbieter-Ressourcen.
           </p>
         </LegalSection>
 
@@ -44,13 +46,37 @@ export default function DatenschutzPage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="Backup (manuell, lokal)">
+        <LegalSection title="Lokales Backup (manuell)">
           <p>
-            Über die Backup-Funktion in den Einstellungen kannst du eine <strong>JSON-Datei</strong>{" "}
+            Über das lokale Backup in den Einstellungen kannst du eine <strong>JSON-Datei</strong>{" "}
             mit deinen Spieldaten herunterladen und auf einem anderen Gerät wieder einspielen. Die
             Datei wird ausschließlich auf deinem Gerät erzeugt und nicht an einen Server übertragen.
             Was mit dieser Datei passiert (z.B. Cloud-Storage, Messenger-Versand) entscheidest
             ausschließlich du.
+          </p>
+        </LegalSection>
+
+        <LegalSection title="Optionales Cloud-Backup">
+          <p>
+            Wenn du das Cloud-Backup in den Einstellungen aktivierst („Code erstellen"), werden
+            folgende Daten auf einem <strong>selbst-gehosteten Server</strong> der verantwortlichen
+            Person (siehe Impressum) gespeichert:
+          </p>
+          <ul>
+            <li>Spieler:innen (Name, Avatar, Farbe)</li>
+            <li>Abgeschlossene Matches (Datum, Spielmodus, Würfe, Legs/Sets)</li>
+            <li>App-Einstellungen (Voice-Pack, Sprache, Sound, Haptik, Eingabemodus)</li>
+          </ul>
+          <p>
+            Die Daten werden unter einem <strong>zufälligen, anonymen Code</strong> im Format{" "}
+            <span className="font-mono">XXX-XXX</span> gespeichert. Es wird kein Account, keine
+            E-Mail-Adresse und kein Name benötigt. Backups, die <strong>365 Tage</strong>{" "}
+            nicht aktualisiert wurden, werden automatisch gelöscht. Du kannst dein Backup
+            jederzeit in den Einstellungen manuell vom Server löschen.
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO – Einwilligung durch
+            aktives Einschalten der Funktion.
           </p>
         </LegalSection>
 

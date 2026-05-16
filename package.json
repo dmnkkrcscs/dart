@@ -3,21 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "NODE_OPTIONS=--experimental-sqlite next dev -p 3000",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "NODE_OPTIONS=--experimental-sqlite next start -p 3000",
     "audio:pdc": "node scripts/generate-audio.mjs pdc",
     "audio:de": "node scripts/generate-audio.mjs de"
   },
   "dependencies": {
     "clsx": "2.1.1",
     "next": "^14.2.33",
+    "qrcode.react": "^4.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "zustand": "4.5.5"
   },
   "devDependencies": {
-    "@types/node": "20.17.6",
+    "@types/node": "^22.19.19",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "autoprefixer": "10.4.20",

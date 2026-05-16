@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { useDB } from "@/lib/store";
 import { announceScore, speak } from "@/lib/voice";
 import { downloadBackup, restoreBackup, wipeAllData } from "@/lib/backup";
+import CloudBackupCard from "@/components/CloudBackupCard";
 
 export default function SettingsPage() {
   const s = useDB(st => st.settings);
@@ -114,10 +115,12 @@ export default function SettingsPage() {
           </div>
         </div>
 
+        <CloudBackupCard/>
+
         <div className="card p-4">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <div className="font-bold">Backup & Daten</div>
+              <div className="font-bold">Lokales Backup</div>
               <div className="mt-0.5 text-xs text-muted">
                 {players.length} Spieler:innen · {history.length} Matches im lokalen Speicher
               </div>

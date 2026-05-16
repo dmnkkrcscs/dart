@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import PWAInstall from "@/components/PWAInstall";
 import SiteFooter from "@/components/SiteFooter";
+import AutoSync from "@/components/AutoSync";
+import RestoreFromUrl from "@/components/RestoreFromUrl";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +40,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="mx-auto max-w-3xl px-4 pb-28 pt-5 md:pt-10">{children}</div>
         <SiteFooter/>
         <PWAInstall/>
+        <AutoSync/>
+        <RestoreFromUrl/>
       </body>
     </html>
   );

@@ -70,28 +70,42 @@ export type RestoreResult =
   | { ok: true; players: number; matches: number }
   | { ok: false; error: string };
 
+function applyParsed(parsed: Partial<BackupPayload>): RestoreResult {
+  if (parsed?.app !== "bullseye") {
+    return { ok: false, error: "Datei ist kein Bullseye-Backup." };
+  }
+  if (typeof parsed.version !== "number" || parsed.version > BACKUP_VERSION) {
+    return { ok: false, error: "Backup-Version wird nicht unterstützt." };
+  }
+  const d = parsed.data;
+  if (!d || !Array.isArray(d.players) || !Array.isArray(d.history)) {
+    return { ok: false, error: "Backup ist beschädigt oder unvollständig." };
+  }
+  let existingCode: string | null = null;
+  try {
+    const cur = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+    existingCode = cur?.state?.backupCode ?? null;
+  } catch {}
+  const state = {
+    players: d.players,
+    history: d.history,
+    settings: { ...DEFAULT_SETTINGS, ...(d.settings || {}) },
+    lastConfig: d.lastConfig ?? null,
+    backupCode: existingCode,
+  };
+  localStorage.setItem(STORE_KEY, JSON.stringify({ state, version: 0 }));
+  return { ok: true, players: state.players.length, matches: state.history.length };
+}
+
+export function applyBackup(payload: BackupPayload): RestoreResult {
+  return applyParsed(payload);
+}
+
 export async function restoreBackup(file: File): Promise<RestoreResult> {
   try {
     const text = await file.text();
     const parsed = JSON.parse(text) as Partial<BackupPayload>;
-    if (parsed?.app !== "bullseye") {
-      return { ok: false, error: "Datei ist kein Bullseye-Backup." };
-    }
-    if (typeof parsed.version !== "number" || parsed.version > BACKUP_VERSION) {
-      return { ok: false, error: "Backup-Version wird nicht unterstützt." };
-    }
-    const d = parsed.data;
-    if (!d || !Array.isArray(d.players) || !Array.isArray(d.history)) {
-      return { ok: false, error: "Backup ist beschädigt oder unvollständig." };
-    }
-    const state = {
-      players: d.players,
-      history: d.history,
-      settings: { ...DEFAULT_SETTINGS, ...(d.settings || {}) },
-      lastConfig: d.lastConfig ?? null,
-    };
-    localStorage.setItem(STORE_KEY, JSON.stringify({ state, version: 0 }));
-    return { ok: true, players: state.players.length, matches: state.history.length };
+    return applyParsed(parsed);
   } catch (e: any) {
     return { ok: false, error: e?.message || "Konnte Datei nicht lesen." };
   }
