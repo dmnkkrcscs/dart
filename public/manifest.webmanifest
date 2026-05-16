@@ -1,13 +1,17 @@
 {
-  "name": "Bullseye Dart Scorer",
+  "name": "Bullseye – Dart Scorer",
   "short_name": "Bullseye",
-  "description": "Die schönste, schnellste Dart-Zähl-App.",
+  "description": "Die schönste, schnellste Dart-Zähl-App. Selfhosted, offline, kein Account.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0b0d10",
-  "theme_color": "#0b0d10",
+  "background_color": "#08090c",
+  "theme_color": "#08090c",
   "orientation": "portrait",
+  "categories": ["games", "sports", "utilities"],
+  "lang": "de",
   "icons": [
-    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
   ]
 }

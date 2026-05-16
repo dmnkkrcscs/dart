@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1d28"/>
+      <stop offset="100%" stop-color="#0b0d10"/>
+    </linearGradient>
+    <radialGradient id="mbull" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff7a5a"/>
+      <stop offset="60%" stop-color="#ff2d55"/>
+      <stop offset="100%" stop-color="#c0143a"/>
+    </radialGradient>
+    <linearGradient id="mflightL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5e3a"/>
+      <stop offset="100%" stop-color="#c0143a"/>
+    </linearGradient>
+    <linearGradient id="mflightR" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8a6a"/>
+      <stop offset="100%" stop-color="#ff2d55"/>
+    </linearGradient>
+    <linearGradient id="mbarrel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e2230"/>
+      <stop offset="50%" stop-color="#3a4154"/>
+      <stop offset="100%" stop-color="#1e2230"/>
+    </linearGradient>
+    <linearGradient id="mshaft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d0d5e0"/>
+      <stop offset="50%" stop-color="#f1f3f7"/>
+      <stop offset="100%" stop-color="#a8adba"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" fill="url(#mbg)"/>
+
+  <g transform="translate(28 28) scale(0.78)">
+    <g>
+      <circle cx="100" cy="156" r="82" fill="none" stroke="#1e2230" stroke-width="2"/>
+      <circle cx="100" cy="156" r="60" fill="none" stroke="#262b38" stroke-width="2"/>
+      <circle cx="100" cy="156" r="40" fill="none" stroke="#ff2d55" stroke-width="2" opacity="0.35"/>
+    </g>
+    <circle cx="100" cy="156" r="22" fill="url(#mbull)"/>
+    <circle cx="100" cy="156" r="22" fill="none" stroke="#ff2d55" stroke-width="1" opacity="0.6"/>
+    <circle cx="100" cy="156" r="9" fill="#ffb02e"/>
+    <circle cx="100" cy="156" r="32" fill="none" stroke="#ff2d55" stroke-width="1" opacity="0.4"/>
+
+    <g transform="translate(100 156) rotate(45)">
+      <path d="M0 0 L-3.2 -12 L3.2 -12 Z" fill="#a8adba"/>
+      <rect x="-3.2" y="-12" width="6.4" height="14" fill="url(#mshaft)"/>
+      <rect x="-7" y="-62" width="14" height="50" rx="2.5" fill="url(#mbarrel)"/>
+      <line x1="-7" y1="-52" x2="7" y2="-52" stroke="#0b0d10" stroke-width="1"/>
+      <line x1="-7" y1="-44" x2="7" y2="-44" stroke="#0b0d10" stroke-width="1"/>
+      <line x1="-7" y1="-36" x2="7" y2="-36" stroke="#0b0d10" stroke-width="1"/>
+      <line x1="-7" y1="-28" x2="7" y2="-28" stroke="#0b0d10" stroke-width="1"/>
+      <line x1="-7" y1="-20" x2="7" y2="-20" stroke="#0b0d10" stroke-width="1"/>
+      <rect x="-2.4" y="-78" width="4.8" height="16" fill="url(#mshaft)"/>
+      <g transform="translate(0 -78)">
+        <path d="M0 0 L-22 -8 L-22 -36 L0 -22 Z" fill="url(#mflightL)"/>
+        <path d="M0 0 L22 -8 L22 -36 L0 -22 Z" fill="url(#mflightR)"/>
+        <line x1="0" y1="-22" x2="0" y2="0" stroke="#0b0d10" stroke-width="1.2" opacity="0.6"/>
+      </g>
+    </g>
+  </g>
+</svg>

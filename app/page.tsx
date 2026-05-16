@@ -161,9 +161,6 @@ export default function Home() {
         </section>
       )}
 
-      <footer className="mt-12 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-dim">
-        gebaut mit <span className="text-accent">●</span> Coolify
-      </footer>
     </>
   );
 }
