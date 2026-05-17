@@ -63,6 +63,26 @@ export default function SettingsPage() {
     <>
       <Header title="Einstellungen"/>
       <div className="space-y-3">
+
+        <div className="card p-4">
+          <div className="mb-2 font-bold">Theme</div>
+          <div className="mb-3 text-xs text-muted">Helles oder dunkles Erscheinungsbild — oder automatisch nach Betriebssystem.</div>
+          <div className="grid grid-cols-3 gap-2">
+            {([
+              {k: "dark",   label: "Dark",   hint: "Standard"},
+              {k: "light",  label: "Light",  hint: "hell"},
+              {k: "system", label: "System", hint: "OS"},
+            ] as const).map(o => (
+              <button key={o.k}
+                onClick={() => update({theme: o.k})}
+                className={`btn flex-col h-auto py-2.5 ${s.theme === o.k ? "btn-primary" : "btn-ghost"}`}>
+                <span className="text-sm font-bold">{o.label}</span>
+                <span className={`text-[10px] ${s.theme === o.k ? "opacity-80" : "text-muted"}`}>{o.hint}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         <Toggle on={s.voice} onChange={v => update({voice: v})} label="Voice-Calling" hint="Punkte und Spiel-Ansagen werden gesprochen"/>
 
         <div className="card p-4">

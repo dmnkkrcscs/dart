@@ -98,6 +98,7 @@ export type Settings = {
   voice: boolean;
   voiceLang: "de" | "en";
   voicePack: "auto" | "pdc" | "de" | "browser";
+  theme: "dark" | "light" | "system";
   sound: boolean;
   haptic: boolean;
   bigDisplay: boolean;
@@ -110,6 +111,7 @@ export const DEFAULT_SETTINGS: Settings = {
   voice: true,
   voiceLang: "en",
   voicePack: "auto",
+  theme: "dark",
   sound: true,
   haptic: true,
   bigDisplay: true,
