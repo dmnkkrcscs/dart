@@ -73,7 +73,14 @@ export const useDB = create<DB>()(
       setLastConfig: (cfg) => set({ lastConfig: cfg }),
       setBackupCode: (code) => set({ backupCode: code }),
     }),
-    { name: "bullseye-v1" }
+    {
+      name: "bullseye-v1",
+      merge: (persisted: unknown, current) => ({
+        ...current,
+        ...(persisted as object),
+        settings: { ...current.settings, ...((persisted as any)?.settings ?? {}) },
+      }),
+    }
   )
 );
 

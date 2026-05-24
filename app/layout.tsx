@@ -22,7 +22,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090c",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)",  color: "#08090c" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f6f9" },
+  ],
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -32,6 +35,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" className={`theme-dark ${inter.variable}`} suppressHydrationWarning>
+      {/* Runs before first paint to avoid flash of wrong theme */}
+      <script dangerouslySetInnerHTML={{__html: `(function(){try{var s=JSON.parse(localStorage.getItem('bullseye-v1')||'{}');var t=(s.state&&s.state.settings&&s.state.settings.theme)||'dark';if(t==='light'||(t==='system'&&window.matchMedia('(prefers-color-scheme:light)').matches)){document.documentElement.classList.replace('theme-dark','theme-light');}}catch(e){}})();`}}/>
       <body className="min-h-screen bg-bg text-ink antialiased font-sans">
         <ThemeApplier/>
         <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">

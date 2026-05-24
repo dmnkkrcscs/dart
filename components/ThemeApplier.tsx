@@ -17,8 +17,8 @@ export default function ThemeApplier() {
       }
       root.classList.remove("theme-light", "theme-dark");
       root.classList.add(next === "light" ? "theme-light" : "theme-dark");
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute("content", next === "light" ? "#f5f6f9" : "#08090c");
+      const color = next === "light" ? "#f5f6f9" : "#08090c";
+      document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", color));
     };
     resolve();
     if (theme === "system") {
